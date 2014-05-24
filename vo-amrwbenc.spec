@@ -4,7 +4,7 @@
 
 Name:		vo-amrwbenc
 Version:	0.1.2
-Release:	%mkrel 1
+Release:	1
 Summary:	VisualOn AMR-WB encoder library
 License:	ASL 2.0
 Group:		System/Libraries
@@ -50,13 +50,8 @@ Header files and development libraries for %{name}
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std
 
-%__rm -f %{buildroot}%{_libdir}/*.la
-
-%clean
-%__rm -rf %{buildroot}
 
 %files -n %{libname}
 %doc AUTHORS COPYING ChangeLog NOTICE README
@@ -66,23 +61,4 @@ Header files and development libraries for %{name}
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-
-%changelog
-* Thu May 17 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 0.1.2-1
-- New version 1.2
-- Add docs
-- Change tainted to restricted in description
-
-* Sun Feb 05 2012 fwang <fwang> 0.1.1-3.mga2
-+ Revision: 205065
-- drop .la file
-
-* Thu May 26 2011 cjw <cjw> 0.1.1-2.mga1.tainted
-+ Revision: 100422
-- add missing library dependency on devel package
-
-* Mon May 09 2011 cjw <cjw> 0.1.1-1.mga1
-+ Revision: 96780
-- add 'tainted' notice
-- imported package vo-amrwbenc
 
