@@ -3,13 +3,13 @@
 %define develname	%mklibname %{name} -d
 
 Name:		vo-amrwbenc
-Version:	0.1.2
+Version:	0.1.3
 Release:	1
 Summary:	VisualOn AMR-WB encoder library
 License:	ASL 2.0
 Group:		System/Libraries
 URL:		https://opencore-amr.sourceforge.net/
-Source0:	http://sourceforge.net/projects/opencore-amr/files/%{name}/%{name}-%{version}.tar.gz
+Source0:	https://sourceforge.net/projects/opencore-amr/files/%{name}/%{name}-%{version}.tar.gz
 
 %description
 This library contains an encoder implementation of the Adaptive Multi
@@ -43,22 +43,21 @@ Requires:	%{libname} = %{version}-%{release}
 Header files and development libraries for %{name}
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
-%configure2_5x --disable-static
-%make
+%configure --disable-static
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 
 %files -n %{libname}
-%doc AUTHORS COPYING ChangeLog NOTICE README
+%doc COPYING ChangeLog NOTICE README
 %{_libdir}/lib%{name}.so.%{major}*
 
 %files -n %{develname}
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-
